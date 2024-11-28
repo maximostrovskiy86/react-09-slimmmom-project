@@ -1,11 +1,16 @@
 import Container from "./container";
+import Navigate from "./navigate";
+import CalculatorPage from "../pages/calculatorPage/CalculatorPage";
 
 function App() {
-  return (
-    <Container>
-      <h1>Hello World</h1>
-    </Container>
-  );
+	return (
+		<>
+			<Navigate/>
+			<Container>
+				<CalculatorPage/>
+			</Container>
+		</>
+	);
 }
 
 export default App;
