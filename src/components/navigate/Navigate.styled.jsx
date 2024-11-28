@@ -7,6 +7,8 @@ export const HeaderStyle = styled.header`
     align-items: center;
     padding-top: 18px;
     padding-bottom: 18px;
+	
+	border-bottom: 2px solid #E0E0E0;
 `
 
 export const NavigateMenuStyle = styled.nav`
