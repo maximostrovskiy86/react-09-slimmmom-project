@@ -2,13 +2,15 @@ import styled from "@emotion/styled";
 
 
 export const HeaderStyle = styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-top: 18px;
     padding-bottom: 18px;
-	
 	border-bottom: 2px solid #E0E0E0;
+	
+	.container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+	}
 `
 
 export const NavigateMenuStyle = styled.nav`
