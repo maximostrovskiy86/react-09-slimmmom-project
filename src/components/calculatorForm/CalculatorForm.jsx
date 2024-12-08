@@ -1,15 +1,20 @@
 import React, {useState,} from "react";
 import {useDispatch} from "react-redux";
 import {fetchDailyCalorieIntake} from "../../redux/dailyCalorieIntake/dailyCalorieIntake-operations";
-import {CalculatorFormContainer, CalculateGroupContainer, FormRadioGroup, InputBox} from "./CalculatorForm.styled";
+import {
+	CalculatorFormContainer,
+	CalculateGroupContainer,
+	FormRadioGroup,
+	InputBox
+} from "./CalculatorForm.styled";
 import Button from "../button";
 
 
-const CalculatorForm = () => {
-	const [height, setHeight] = useState('');
-	const [age, setAge] = useState('');
-	const [weight, setWeight] = useState('');
-	const [desiredWeight, setDesiredWeight] = useState('');
+const CalculatorForm = ({toggleModal}) => {
+	const [height, setHeight] = useState(172);
+	const [age, setAge] = useState(38);
+	const [weight, setWeight] = useState(75);
+	const [desiredWeight, setDesiredWeight] = useState(71);
 	const [bloodType, setBloodType] = useState(1);
 	const dispatch = useDispatch();
 	
@@ -31,23 +36,40 @@ const CalculatorForm = () => {
 				setDesiredWeight(value);
 				break;
 			case 'bloodType':
-				setBloodType(value);
+				setBloodType(Number(value));
 				break;
 			default:
 				return;
 		}
 	}
 	
-	const handleSubmit = (e) => {
+	const onHandleBlur = (e) => {
+		const {value} = e.target;
+		
+	}
+	
+	// const onHandleBlur = (e) => {
+	// 	const input = e.target;
+	// 	if (input.value !== "") {
+	// 		input.classList.add(not_empty);
+	// 	}
+	// 	if (input.value === "") {
+	// 		input.classList.remove(style.not_empty);
+	// 	}
+	// };
+	//
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		
-		dispatch(fetchDailyCalorieIntake({
+		await dispatch(fetchDailyCalorieIntake({
 			weight,
 			height,
 			age,
 			desiredWeight,
 			bloodType
 		}))
+		
+		toggleModal();
 	}
 	
 	return (
@@ -61,7 +83,9 @@ const CalculatorForm = () => {
 						pattern="^[ 0-9]+$"
 						required
 						value={height}
-						onChange={onHandleChange}/>
+						onChange={onHandleChange}
+						onBlur={onHandleBlur}
+					/>
 					<label htmlFor="heightId">Height </label>
 				</InputBox>
 				<InputBox>
@@ -104,19 +128,47 @@ const CalculatorForm = () => {
 			<FormRadioGroup>
 				<legend className="form-radio-group-title">Blood group</legend>
 				<div className="radio-form-field">
-					<input type="radio" name="bloodType" value="1" id="first-blood-group"/>
+					<input
+						type="radio"
+						// checked={bloodType === 1}
+						name="bloodType"
+						value="1"
+						id="first-blood-group"
+						onChange={onHandleChange}
+					/>
 					<label className="form-label" htmlFor="first-blood-group">1</label>
 				</div>
 				<div className="radio-form-field">
-					<input type="radio" name="bloodType" value="2" id="second-blood-group"/>
+					<input
+						type="radio"
+						// checked={bloodType === 2}
+						name="bloodType"
+						value="2"
+						id="second-blood-group"
+						onChange={onHandleChange}
+					/>
 					<label className="form-label" htmlFor="second-blood-group">2</label>
 				</div>
 				<div className="radio-form-field">
-					<input type="radio" name="bloodType" value="3" id="third-blood-group"/>
+					<input
+						type="radio"
+						// checked={bloodType === 3}
+						name="bloodType"
+						value="3"
+						id="third-blood-group"
+						onChange={onHandleChange}
+					/>
 					<label className="form-label" htmlFor="third-blood-group">3</label>
 				</div>
 				<div className="radio-form-field">
-					<input type="radio" name="bloodType" value="4" id="fourth-blood-group"/>
+					<input
+						type="radio"
+						// checked={bloodType === 4}
+						name="bloodType"
+						value="4"
+						id="fourth-blood-group"
+						onChange={onHandleChange}
+					/>
 					<label className="form-label" htmlFor="fourth-blood-group">4</label>
 				</div>
 			</FormRadioGroup>

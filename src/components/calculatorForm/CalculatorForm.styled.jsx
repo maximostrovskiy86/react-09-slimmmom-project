@@ -13,7 +13,7 @@ export const InputBox = styled.div`
     
     label {
         position: absolute;
-        top: 0;
+        top: -20px;
         left: 0;
         padding: 10px 0;
         
@@ -40,7 +40,7 @@ export const InputBox = styled.div`
         outline: none;
         
         &:focus ~ label {
-            top: -20px;
+            top: -22px;
             left: 0;
             color: #FC842D;
             font-size: 12px;
@@ -57,8 +57,6 @@ export const FormRadioGroup = styled.fieldset`
         margin-bottom: 10px;
     }
 	
-
-    
     .radio-form-field {
 		position: relative;
 		
