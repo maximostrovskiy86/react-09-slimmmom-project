@@ -1,10 +1,10 @@
 import {HeadTitleStyle} from "./HeadTitle.styled";
 
 
-const HeadTitle = () => {
+const HeadTitle = ({text}) => {
 	return (
 		<HeadTitleStyle>
-			Calculate your daily calorie intake right now
+			{text}
 		</HeadTitleStyle>
 	)
 }

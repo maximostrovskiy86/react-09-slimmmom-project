@@ -1,7 +1,8 @@
 import axios from "axios";
 import {
-	fetchingDailyCalorieIntakeInProgress, fetchingDailyCalorieIntakeSuccess, fetchingDailyCalorieIntakeError,
-
+	fetchingDailyCalorieIntakeInProgress,
+	fetchingDailyCalorieIntakeSuccess,
+	fetchingDailyCalorieIntakeError
 } from "./dailyCalorieIntakeSlice";
 
 axios.defaults.baseURL = "https://slimmom-backend.goit.global";
