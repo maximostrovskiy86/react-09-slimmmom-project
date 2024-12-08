@@ -5,8 +5,7 @@ export const ButtonContainer = styled.button`
     justify-content: center;
     max-width: 176px;
     padding: 13px 40px;
-    //margin: 0 auto;
-    //margin-top: 60px;
+    
     
     font-weight: 700;
     font-size: 14px;
@@ -19,7 +18,7 @@ export const ButtonContainer = styled.button`
     border: 2px solid #fc842d;
     border-radius: 30px;
     outline: none;
-	
+    
     cursor: pointer;
     transition: box-shadow 250ms ease-in, background-color 250ms ease-in-out,
     color 250ms $timing-function;
@@ -28,6 +27,10 @@ export const ButtonContainer = styled.button`
         background-color: #fc842d;
         color: #ffffff;
         box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    }
+    
+    &:active {
+        background-color: #f37820;
     }
 `;
 
