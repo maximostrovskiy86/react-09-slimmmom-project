@@ -24,7 +24,9 @@ const CalculatorPage = () => {
 		<CalculatorPageContainer>
 			<HeadTitle text={titleCalculatePage}/>
 			<CalculatorForm toggleModal={toggleModal}/>
-			{showModal && userDailyRate && <Modal toggleModal={toggleModal}>
+			
+			{showModal && userDailyRate &&
+			<Modal toggleModal={toggleModal}>
 				<div className="modal-header">
 					<IconButton toggleModal={toggleModal} aria-label="Go Back">
 						<GoBack width={17} height={10}/>

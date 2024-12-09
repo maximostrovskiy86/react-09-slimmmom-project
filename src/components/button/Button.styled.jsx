@@ -3,8 +3,9 @@ import styled from "@emotion/styled";
 export const ButtonContainer = styled.button`
     display: flex;
     justify-content: center;
-    max-width: 176px;
+    min-width: 176px;
     padding: 13px 40px;
+	margin: 0 auto;
     
     
     font-weight: 700;
