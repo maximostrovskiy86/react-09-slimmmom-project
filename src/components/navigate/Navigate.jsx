@@ -1,4 +1,4 @@
-import {HeaderStyle, NavigateMenuStyle} from './Navigate.styled';
+import {HeaderStyle, NavigateMenuStyle, Link} from './Navigate.styled';
 import Container from "../container";
 import Logo from '../logo';
 
@@ -7,12 +7,14 @@ const Navigate = () => {
 		<HeaderStyle>
 			<Container>
 				<strong className="logo">
-					<a href="./index.html"><Logo/></a>
+					<Link to="/">
+						<Logo/>
+					</Link>
 				</strong>
 				<NavigateMenuStyle>
 					<ul>
-						<li><a href="#">Login</a></li>
-						<li><a href="#">Register</a></li>
+						<li><Link to="/login">Login</Link></li>
+						<li><Link href="/register">Register</Link></li>
 					</ul>
 				</NavigateMenuStyle>
 			</Container>
