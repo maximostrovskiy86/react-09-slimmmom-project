@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from 'react-redux';
 import {ThemeProvider} from '@emotion/react'
+import {theme} from "./theme";
 
 import store from './redux/store';
 import './index.css';
@@ -13,7 +14,7 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
-				<ThemeProvider>
+				<ThemeProvider theme={theme}>
 					<App/>
 				</ThemeProvider>
 			</BrowserRouter>
