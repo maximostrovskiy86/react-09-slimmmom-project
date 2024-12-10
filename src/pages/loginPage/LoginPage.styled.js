@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
 export const LoginPageContainer = styled.div`
-	padding-top: 40px;
+	padding-top: ${p => p.theme.space[7]};
 	
 	h1 {
-        padding: 0;
+        padding: ${p => p.theme.space[0]};
 		
         text-align: center;
 		
-        color: #FC842D;
+        color: ${p => p.theme.colors.accent};
 	}
 `;
