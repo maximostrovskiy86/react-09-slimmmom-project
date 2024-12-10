@@ -43,21 +43,6 @@ const CalculatorForm = ({toggleModal}) => {
 		}
 	}
 	
-	const onHandleBlur = (e) => {
-		const {value} = e.target;
-		
-	}
-	
-	// const onHandleBlur = (e) => {
-	// 	const input = e.target;
-	// 	if (input.value !== "") {
-	// 		input.classList.add(not_empty);
-	// 	}
-	// 	if (input.value === "") {
-	// 		input.classList.remove(style.not_empty);
-	// 	}
-	// };
-	//
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		
@@ -84,7 +69,6 @@ const CalculatorForm = ({toggleModal}) => {
 						required
 						value={height}
 						onChange={onHandleChange}
-						onBlur={onHandleBlur}
 					/>
 					<label htmlFor="heightId">Height </label>
 				</InputBox>
@@ -130,7 +114,6 @@ const CalculatorForm = ({toggleModal}) => {
 				<div className="radio-form-field">
 					<input
 						type="radio"
-						// checked={bloodType === 1}
 						name="bloodType"
 						value="1"
 						id="first-blood-group"
@@ -141,7 +124,6 @@ const CalculatorForm = ({toggleModal}) => {
 				<div className="radio-form-field">
 					<input
 						type="radio"
-						// checked={bloodType === 2}
 						name="bloodType"
 						value="2"
 						id="second-blood-group"
@@ -163,7 +145,6 @@ const CalculatorForm = ({toggleModal}) => {
 				<div className="radio-form-field">
 					<input
 						type="radio"
-						// checked={bloodType === 4}
 						name="bloodType"
 						value="4"
 						id="fourth-blood-group"
@@ -173,7 +154,7 @@ const CalculatorForm = ({toggleModal}) => {
 				</div>
 			</FormRadioGroup>
 			
-			<Button text="Lose weight"/>
+			<Button>Lose weight</Button>
 		</CalculatorFormContainer>
 	)
 }

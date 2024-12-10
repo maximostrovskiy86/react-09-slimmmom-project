@@ -17,13 +17,13 @@ export const InputBox = styled.div`
         left: 0;
         padding: 10px 0;
         
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 1.2;
+        font-weight: ${p => p.theme.fontWeights.bold};
+        font-size:  ${p => p.theme.fontSizes.sm};
+        line-height: ${p => p.theme.lineHeights.medium};
         letter-spacing: 0.04em;
         
         pointer-events: none;
-        transition: 0.5s;
+        transition: ${p => p.theme.durations.ms500};
     }
     
     input {
@@ -31,19 +31,19 @@ export const InputBox = styled.div`
         padding: 10px 0;
         margin-bottom: 30px;
         
-        font-size: 16px;
+        font-size: ${p => p.theme.fontSizes.md};
         
-        color: rgb(0, 0, 0);
+        color: ${p => p.theme.colors.secondary};
         background: transparent;
-        border: none;
-        border-bottom: 1px solid #e0e0e0;
+        border: ${p => p.theme.borders.none};
+        border-bottom: ${p => p.theme.borders.none} solid ${p => p.theme.colors.gray};
         outline: none;
         
         &:focus ~ label {
             top: -22px;
             left: 0;
-            color: #FC842D;
-            font-size: 12px;
+            color: ${p => p.theme.colors.accent};
+            font-size: ${p => p.theme.fontSizes.xs};
         }
     }
 `;

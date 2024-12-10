@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import {NavLink} from 'react-router-dom';
+
 
 
 export const HeaderStyle = styled.header`
@@ -26,4 +28,13 @@ export const NavigateMenuStyle = styled.nav`
             margin-left: 25px;
         }
     }
-`
+`;
+
+export const Link = styled(NavLink)`
+  text-decoration: none;
+  color: #9B9FAA;
+
+  &.active {
+    color: #212121;
+  }
+`;

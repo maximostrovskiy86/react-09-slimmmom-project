@@ -1,10 +1,10 @@
 import React from "react";
 import { ButtonContainer } from "./Button.styled";
 
-const Button = ({onClick, text}) => {
+const Button = ({type="submit", onClick, children}) => {
 	return (
-		<ButtonContainer type="submit" onClick={onClick}>
-			{text}
+		<ButtonContainer  type={type} onClick={onClick}>
+			{children}
 		</ButtonContainer>
 	);
 };
