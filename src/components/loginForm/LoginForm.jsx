@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {LoginFormContainer, InputBox} from "./LoginForm.styled";
+import {LoginFormContainer, LoginInputBox} from "./LoginForm.styled";
 import Button from "../button";
 
 const LoginForm = () => {
@@ -24,7 +24,7 @@ const LoginForm = () => {
 	
 	return (
 		<LoginFormContainer action="">
-			<InputBox>
+			<LoginInputBox>
 				<input
 					id="login"
 					type="email"
@@ -36,8 +36,8 @@ const LoginForm = () => {
 					onChange={onHandleChange}
 				/>
 				<label htmlFor="login">Login</label>
-			</InputBox>
-			<InputBox>
+			</LoginInputBox>
+			<LoginInputBox>
 				<input
 					id="password"
 					type="password"
@@ -49,9 +49,9 @@ const LoginForm = () => {
 					onChange={onHandleChange}
 				/>
 				<label htmlFor="password">Password</label>
-			</InputBox>
-			<Button type="submit" text="Login"/>
-			<Button type="submit" text="Registration"/>
+			</LoginInputBox>
+			<Button>Login</Button>
+			<Button>Registration</Button>
 		</LoginFormContainer>
 	
 	)

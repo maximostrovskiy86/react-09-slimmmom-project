@@ -9,29 +9,24 @@ export const DailyCalorieIntakeContainer = styled.div`
         font-size: 36px;
         font-weight: 900;
         text-align: center;
-		
-		color: #264061;
-		
-		border-bottom: 1px solid #D9D9D9;
-		
-		span {
+        
+        color: #264061;
+        
+        border-bottom: 1px solid #D9D9D9;
+        
+        span {
             font-size: 18px;
-		}
+        }
     }
-	
-	h2 {
-		padding-top: 25px;
-		padding-bottom: 25px;
-		
-		font-size: 14px;
+    
+    h2 {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        
+        font-size: 14px;
         font-weight: 900;
         text-align: center;
     }
-	
-	.button-container {
-		display: flex;
-		justify-content: center;
-	}
 `;
 
 export const DailyCalorieIntakeList = styled.ul`

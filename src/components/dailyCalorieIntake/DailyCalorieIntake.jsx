@@ -17,7 +17,7 @@ const DailyCalorieIntake = ({userDailyRate: {dailyRate, notAllowedProducts}}) =>
 						return <li key={product}>{index + 1}. {product}</li>
 					})}
 				</DailyCalorieIntakeList>
-				<div className='button-container'><Button text="Lose weight"/></div>
+				<Button>Lose weight</Button>
 			</div>
 		</DailyCalorieIntakeContainer>
 	)
