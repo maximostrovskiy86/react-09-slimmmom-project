@@ -1,10 +1,10 @@
 import {HeadTitleStyle} from "./HeadTitle.styled";
 
 
-const HeadTitle = ({text}) => {
+const HeadTitle = ({children}) => {
 	return (
 		<HeadTitleStyle>
-			{text}
+			{children}
 		</HeadTitleStyle>
 	)
 }
