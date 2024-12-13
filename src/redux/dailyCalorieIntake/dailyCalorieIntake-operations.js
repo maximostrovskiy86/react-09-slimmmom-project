@@ -15,6 +15,7 @@ export const fetchDailyCalorieIntake = (userData) => async dispatch => {
 		// HTTP-запрос
 		const response = await axios.post("/daily-rate", userData);
 		// Обработка данных
+		console.log("response", response.data);
 		dispatch(fetchingDailyCalorieIntakeSuccess(response.data));
 	} catch (e) {
 		// Обработка ошибки

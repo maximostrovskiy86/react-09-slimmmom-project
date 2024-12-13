@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {LoginFormContainer, LoginInputBox} from "./LoginForm.styled";
 import Button from "../button";
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useSelector} from "react-redux";
-import {CalculatorPageContainer} from "./CalculatorPage.styled";
+import {CalculatorPageContainer} from "./MainPage.styled";
 import {getDailyCalorieIntake} from "../../redux/dailyCalorieIntake/dailyCalorieIntake-selectors";
 import HeadTitle from "../../components/headTitle";
 import CalculatorForm from "../../components/calculatorForm";
@@ -10,7 +10,7 @@ import {ReactComponent as GoBack} from "../../images/modal/cross-arrow.svg";
 import IconButton from "../../components/iconButton";
 
 
-const CalculatorPage = () => {
+const MainPage = () => {
 	const [showModal, setShowModal] = useState(false);
 	
 	const userDailyRate = useSelector(getDailyCalorieIntake);
@@ -38,4 +38,4 @@ const CalculatorPage = () => {
 	)
 }
 
-export default CalculatorPage;
+export default MainPage;
