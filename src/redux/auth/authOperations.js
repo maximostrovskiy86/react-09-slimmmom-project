@@ -14,11 +14,9 @@ const token = {
 
 const register = createAsyncThunk('auth/register',
 	async (credentials, thunkAPI) => {
-		console.log('credentials', credentials)
 		try {
-			const response = await axios.post('/auth/register', credentials);
-			console.log("response", response);
-			return response;
+			return await axios.post('/auth/register', credentials);
+			
 		} catch (err) {
 			return thunkAPI.rejectWithValue(err.message);
 		}
@@ -26,15 +24,15 @@ const register = createAsyncThunk('auth/register',
 
 const login = createAsyncThunk('auth/login',
 	async (credentials, thunkAPI) => {
-		console.log('credentials', credentials)
 		try {
 			const response = await axios.post('/auth/login', credentials);
 			token.set(response.data.accessToken);
-			console.log("LoginUser", response);
+			// console.log("LoginUser", response);
 			
 			return response;
 		} catch (err) {
-			return thunkAPI.rejectWithValue(err.message);
+			// console.log("LoginErrror", err);
+			return thunkAPI.rejectWithValue(err);
 		}
 	});
 
@@ -43,7 +41,6 @@ const logOut = createAsyncThunk('auth/logout',
 		try {
 			const response = await axios.post('/auth/logout');
 			token.unset();
-			// console.log("response", response);
 			return response;
 		} catch (err) {
 			return thunkAPI.rejectWithValue(err.message);
@@ -53,9 +50,7 @@ const logOut = createAsyncThunk('auth/logout',
 const refreshCurrentUser = createAsyncThunk('auth/refresh',
 	async (credentialsSid, thunkAPI) => {
 		// console.log("thunkAPI", thunkAPI)
-		console.log("credentialsSid", credentialsSid)
 		const state = thunkAPI.getState();
-		console.log("state", state)
 		const persistToken = state.auth.refreshToken;
 		
 		if (persistToken === null) {
@@ -65,7 +60,6 @@ const refreshCurrentUser = createAsyncThunk('auth/refresh',
 		token.set(persistToken);
 		try {
 			const response = await axios.post('/auth/refresh', credentialsSid);
-			console.log("refreshCurrentUser", response);
 			return response;
 		} catch (err) {
 			return thunkAPI.rejectWithValue(err.message);

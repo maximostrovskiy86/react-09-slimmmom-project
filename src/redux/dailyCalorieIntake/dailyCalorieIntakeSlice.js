@@ -3,6 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
 	dailyRate: null,
 	notAllowedProducts: [],
+	isLoading: false,
+	error: null,
 }
 
 const dailyCalorieIntakeSlice = createSlice({
@@ -10,13 +12,13 @@ const dailyCalorieIntakeSlice = createSlice({
 	initialState,
 	reducers: {
 		fetchingDailyCalorieIntakeInProgress(state) {
-			// state.isLoading = true;
+			state.isLoading = true;
 		},
 		fetchingDailyCalorieIntakeSuccess(state, action) {
-			// state.isLoading = false;
-			// state.error = null;
 			state.dailyRate = action.payload.dailyRate;  // Immer сам преобразует обновление в Slice
 			state.notAllowedProducts = action.payload.notAllowedProducts;  // Immer сам преобразует обновление в Slice
+			state.isLoading = false;
+			state.error = null;
 		},
 		fetchingDailyCalorieIntakeError(state, action) {
 			state.isLoading = false;

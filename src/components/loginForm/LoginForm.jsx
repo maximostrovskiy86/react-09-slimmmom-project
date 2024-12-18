@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {LoginFormContainer, LoginInputBox} from "./LoginForm.styled";
 import Button from "../button";
 import authOperations from "../../redux/auth/authOperations";
+import {toast} from "react-toastify";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
@@ -26,6 +27,9 @@ const LoginForm = () => {
 		}
 	}
 	
+	const notifyIncorrectUser = (email) => toast.error(`Incorrect password or email`);
+	
+	
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		const {payload} = await dispatch(authOperations.login({
@@ -35,6 +39,11 @@ const LoginForm = () => {
 		
 		setEmail('');
 		setPassword('');
+		
+		if (payload.status === 403) {
+			notifyIncorrectUser()
+			return;
+		}
 		
 		if (payload.status === 200) {
 			navigate("/", {replace: true});
