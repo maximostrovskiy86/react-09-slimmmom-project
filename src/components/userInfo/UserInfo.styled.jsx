@@ -7,8 +7,8 @@ export const UserInfoWrapper = styled.div`
         align-items: center;
         height: 40px;
 	}
-	
-	background-color: ${props => props.theme.colors.gray};
+    
+    background-color: ${p => p.theme.colors.background};
 	
 	span {
 		padding-left: ${props => props.theme.space[2]}px;
