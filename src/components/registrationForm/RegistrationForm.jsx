@@ -1,20 +1,26 @@
 import React, {useState} from "react";
-import {RegistrationFormContainer} from "./RegistrationPage.styled"
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import { toast } from 'react-toastify';
+import {RegistrationFormContainer} from "./RegistrationForm.styled"
 import {LoginInputBox} from "../loginForm/LoginForm.styled";
 import Button from "../button";
+import authOperations from "../../redux/auth/authOperations";
 
 
 const RegistrationForm = () => {
-	const [name, setName] = useState("");
+	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	
 	const onHandleChange = e => {
 		const {value, name} = e.target;
 		
 		switch (name) {
-			case 'name':
-				setName(value);
+			case 'username':
+				setUsername(value);
 				break;
 			case 'email':
 				setEmail(value);
@@ -27,20 +33,50 @@ const RegistrationForm = () => {
 		}
 	}
 	
+	const notifySuccessCreated = (email, name) => toast.success(`User ${email} and name ${name} created!`);
+	const notifyExistsUser = (email) => toast.error(`User ${email} already exists!`);
+	
+	const onSubmit = async (event) => {
+		event.preventDefault();
+		
+		const response = await dispatch(authOperations.register({
+			email,
+			username,
+			password,
+		}))
+		
+		resetForm();
+		
+		if (response.payload.status === 201) {
+			notifySuccessCreated(response.payload.data.email, response.payload.data.username);
+			navigate("/login");
+			
+			return;
+		}
+		
+		notifyExistsUser(response.meta.arg.email);
+	}
+	
+	const resetForm = () => {
+		setUsername("");
+		setEmail("");
+		setPassword("");
+	}
+	
 	return (
-		<RegistrationFormContainer>
+		<RegistrationFormContainer onSubmit={onSubmit}>
 			<LoginInputBox>
 				<input
 					id="name"
 					type="text"
-					name="name"
+					name="username"
 					required
-					value={name}
-					pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+					value={username}
+					// pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
 					title="The name can only consist of Latin letters, apostrophes, dashes and spaces. For example, Adrian, Jacob Mercer, Castelmore d'Artagnan, etc."
 					onChange={onHandleChange}
 				/>
-				<label htmlFor="login">Name</label>
+				<label htmlFor="name">Name</label>
 			</LoginInputBox>
 			<LoginInputBox>
 				<input
@@ -49,8 +85,8 @@ const RegistrationForm = () => {
 					name="email"
 					required
 					value={email}
-					pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
-					title="Email must contain the @ symbol and be in the format example@mail.com"
+					// pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
+					title="Email must contain the @ symbol and be in the for	mat example@mail.com"
 					onChange={onHandleChange}
 				/>
 				<label htmlFor="login">Login</label>
@@ -68,7 +104,7 @@ const RegistrationForm = () => {
 				/>
 				<label htmlFor="password">Password</label>
 			</LoginInputBox>
-			<Button>Login</Button>
+			{/*<Button>Login</Button>*/}
 			<Button>Registration</Button>
 		</RegistrationFormContainer>
 	)
