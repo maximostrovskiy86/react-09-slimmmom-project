@@ -1,13 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {
 	persistStore,
-	FLUSH,
-	REHYDRATE,
-	PAUSE,
-	PERSIST,
-	PURGE,
-	REGISTER,
-} from 'redux-persist'
+	// FLUSH,
+	// REHYDRATE,
+	// PAUSE,
+	// PERSIST,
+	// PURGE,
+	// REGISTER,
+} from 'redux-persist';
 import {dailyCalorieIntakeReducer} from "./dailyCalorieIntake/dailyCalorieIntakeSlice";
 import {authReducer} from "./auth/authSlice";
 
