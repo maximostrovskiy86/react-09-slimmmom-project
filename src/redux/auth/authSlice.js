@@ -27,9 +27,9 @@ const initialState = {
 		username: null,
 		userData: {
 			notAllowedProducts: [],
-		}
+		},
+		id: "",
 	},
-	id: "",
 	isLoggedIn: false,
 	isLoading: false,
 	error: null,
@@ -80,7 +80,9 @@ const authSlice = createSlice({
 				state.refreshToken = action.payload.data.refreshToken;
 				state.sid = action.payload.data.sid;
 				state.todaySummary = action.payload.data.todaySummary;
-				state.user.username = action.payload.data.user.username;
+				state.user = action.payload.data.user;
+				// state.user.username = action.payload.data.user.username;
+				// state.user.id = action.payload.data.user.id;
 				state.isLoggedIn = true;
 				state.isLoading = false;
 				state.error = null;

@@ -32,8 +32,9 @@ export const HeaderStyle = styled.header`
         }
         
         .icon-box {
-            width: 24px;
-            height: 24px;
+			background-color: transparent;
+			outline: none;
+			border: none;
             cursor: pointer;
         }
     }

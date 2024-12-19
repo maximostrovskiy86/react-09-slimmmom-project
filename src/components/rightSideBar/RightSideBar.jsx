@@ -5,9 +5,9 @@ import {getIsLoginUser} from "../../redux/auth/authSelectors";
 
 const RightSideBar = () => {
 	
-	const userData = useSelector(getUser);
+	// const userData = useSelector(getUser);
 	
-	console.log("userData", userData);
+	// console.log("userData", userData);
 	return (
 		<RightSideBarContainer>
 			<Container>
