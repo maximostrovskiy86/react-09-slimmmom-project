@@ -3,7 +3,8 @@ import {NavLink} from 'react-router-dom';
 
 
 
-export const HeaderStyle = styled.header`
+export const HeaderStyle = styled.div`
+    position: relative;
     padding-top: 18px;
     padding-bottom: 18px;
     border-bottom: 2px solid #E0E0E0;
@@ -61,4 +62,43 @@ export const Link = styled(NavLink)`
   &.active {
     color: #212121;
   }
+`;
+
+export const Menu = styled.menu`
+    .menu-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        padding-top: ${p => p.theme.space[7]}px;
+        background-color: #264061;
+        
+        z-index: 3;
+        
+        li {
+            text-align: center;
+            
+            a {
+                display: inline-block;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                
+                font-size: 18px;
+                font-weight: ${props => props.theme.fontWeights.bold};
+                text-transform: uppercase;
+                color: ${props => props.theme.colors.text};
+                
+                transition: background-color 0.25ms cubic-bezier(0.4, 0, 0.2, 1);
+				&:focus {
+					color: ${p => p.theme.colors.primary};
+				}
+            }
+        }
+        
+        li + li {
+            margin-top: ${p => p.theme.space[4]}px;
+        }
+    }
+}
 `;

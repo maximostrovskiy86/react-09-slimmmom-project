@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {useSelector} from "react-redux";
 import {getIsLoggedIn} from "../../redux/auth/authSelectors";
-import {HeaderStyle, NavigateMenuStyle, Link} from './Navigate.styled';
+import {HeaderStyle, NavigateMenuStyle, Link, Menu} from './Navigate.styled';
 import Container from "../container";
 import Logo from '../logo';
-import { ImMenu, ImCross } from "react-icons/im";
+import {ImMenu, ImCross} from "react-icons/im";
 
 
 const Navigate = () => {
@@ -24,17 +24,22 @@ const Navigate = () => {
 					</Link>
 				</strong>
 				{isLoggedIn ?
-					<button className="icon-box" onClick={toggleMenu}>
-						{isOpen ? <ImCross size="1.5em"/> : <ImMenu size="1.5em"/>}
-					</button> :
+					<Menu>
+						<button className="icon-box" onClick={toggleMenu}>
+							{isOpen ? <ImCross size="1.75em" color="#212121"/> : <ImMenu size="1.75em"/>}
+						</button>
+						{isOpen && <div className="menu-box">
+							<ul className="list-navigation">
+								<li><a href="#">Diary</a></li>
+								<li><a href="#">Calculator</a></li>
+							</ul>
+						</div>
+						}
+					</Menu> :
 					<NavigateMenuStyle>
 						<ul>
 							<li><Link to="/login">Login</Link></li>
 							<li><Link to="/registration">Register</Link></li>
-						</ul>
-						<ul className="list-navigation">
-							<li><a href="javascript:void(0)">Diary</a></li>
-							<li><a href="javascript:void(0)">Calculator</a></li>
 						</ul>
 					</NavigateMenuStyle>}
 			</Container>

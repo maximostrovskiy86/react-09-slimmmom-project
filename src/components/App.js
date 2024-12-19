@@ -25,17 +25,18 @@ function App() {
 	// }, [dispatch])
 	
 	
-	
 	return (
 		<>
-			<Navigate/>
 			{isLoading ? <LoadingSpinner/> :
-				<Routes path="/" element={<SharedLayout/>}>
-					<Route index path="/" element={<MainPage/>}/>
-					<Route path="/login" element={<LoginPage/>}/>
-					<Route path="/registration" element={<RegistrationPage/>}/>
+				<Routes>
+					<Route path="/" element={<SharedLayout/>}>
+						<Route index path="/" element={<MainPage/>}/>
+						<Route path="/login" element={<LoginPage/>}/>
+						<Route path="/registration" element={<RegistrationPage/>}/>
+					</Route>
 				</Routes>
 			}
+			
 			<ToastContainer/>
 		</>
 	);
