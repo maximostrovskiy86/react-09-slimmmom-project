@@ -12,6 +12,7 @@ import {getIsLoggedIn} from "../../redux/auth/authSelectors";
 import UserInfo from "../../components/userInfo";
 import Container from "../../components/container";
 import authOperations from "../../redux/auth/authOperations";
+import RightSideBar from "../../components/rightSideBar";
 
 
 
@@ -30,12 +31,16 @@ const MainPage = () => {
 	}
 	
 	return (
-		<MainPageContainer>
-			{isLoggedIn && <UserInfo onLogOut={onLogOut}/>}
-			<Container>
-				<HeadTitle>Calculate your daily calorie intake right now</HeadTitle>
-				<CalculatorForm toggleModal={toggleModal}/>
-			</Container>
+		<>
+			<MainPageContainer>
+				{isLoggedIn && <UserInfo onLogOut={onLogOut}/>}
+				<Container>
+					<HeadTitle>Calculate your daily calorie intake right now</HeadTitle>
+					<CalculatorForm toggleModal={toggleModal}/>
+				</Container>
+			
+			</MainPageContainer>
+			{isLoggedIn && <RightSideBar/>}
 			
 			{showModal && userDailyRate &&
 				<Modal toggleModal={toggleModal}>
@@ -49,7 +54,7 @@ const MainPage = () => {
 						<DailyCalorieIntake userDailyRate={userDailyRate}/>
 					</Container>
 				</Modal>}
-		</MainPageContainer>
+		</>
 	)
 }
 

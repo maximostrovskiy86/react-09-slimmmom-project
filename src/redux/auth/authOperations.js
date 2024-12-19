@@ -70,7 +70,8 @@ const authOperations = {
 	register,
 	login,
 	logOut,
-	refreshCurrentUser
+	refreshCurrentUser,
+	token
 }
 
 export default authOperations;

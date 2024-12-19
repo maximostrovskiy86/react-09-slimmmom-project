@@ -1,11 +1,11 @@
 import {UserInfoWrapper} from "./UserInfo.styled";
 import { useSelector } from "react-redux";
 import Container from "../container";
-import {getUserData} from "../../redux/auth/authSelectors";
+import {getUserName} from "../../redux/auth/authSelectors";
 
 const UserInfo = ({onLogOut}) => {
-	const  username  = useSelector(getUserData);
-	console.log("userInfo", username);
+	const  username  = useSelector(getUserName);
+	
 	return (
 		<UserInfoWrapper>
 			<Container>

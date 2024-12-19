@@ -1,14 +1,19 @@
+import React, { useState } from "react";
 import {useSelector} from "react-redux";
-import { getIsLoggedIn } from "../../redux/auth/authSelectors";
+import {getIsLoggedIn} from "../../redux/auth/authSelectors";
 import {HeaderStyle, NavigateMenuStyle, Link} from './Navigate.styled';
 import Container from "../container";
 import Logo from '../logo';
-import {FaBars} from "react-icons/fa";
-
+import { ImMenu, ImCross } from "react-icons/im";
 
 
 const Navigate = () => {
+	const [isOpen, setIsOpen] = React.useState(false);
 	const isLoggedIn = useSelector(getIsLoggedIn);
+	
+	const toggleMenu = () => {
+		setIsOpen(prev => !prev);
+	}
 	
 	return (
 		<HeaderStyle>
@@ -17,13 +22,19 @@ const Navigate = () => {
 					<Link to="/">
 						<Logo/>
 					</Link>
-					{/*{isLoggedIn && <div className="logo-title"><span>Slim</span><span>Mom</span></div>}*/}
 				</strong>
-				{isLoggedIn ? <div className="icon-box"><FaBars width="100%" height="100%" /></div> :
+				{isLoggedIn ?
+					<button className="icon-box" onClick={toggleMenu}>
+						{isOpen ? <ImCross size="1.5em"/> : <ImMenu size="1.5em"/>}
+					</button> :
 					<NavigateMenuStyle>
 						<ul>
 							<li><Link to="/login">Login</Link></li>
 							<li><Link to="/registration">Register</Link></li>
+						</ul>
+						<ul className="list-navigation">
+							<li><a href="javascript:void(0)">Diary</a></li>
+							<li><a href="javascript:void(0)">Calculator</a></li>
 						</ul>
 					</NavigateMenuStyle>}
 			</Container>
