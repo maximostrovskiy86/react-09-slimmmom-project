@@ -3,4 +3,3 @@ import {LoginFormContainer} from "../loginForm/LoginForm.styled";
 
 export const RegistrationFormContainer = styled(LoginFormContainer)`
 `;
-

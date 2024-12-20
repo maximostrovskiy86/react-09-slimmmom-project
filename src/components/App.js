@@ -3,14 +3,13 @@ import {Routes, Route} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 // import authOperations from "../redux/auth/authOperations";
 import {getAccessToken, getIsLoggedIn, getUserSid, getIsLoading} from "../redux/auth/authSelectors";
+import Navigate from "./navigate";
 import MainPage from "../pages/mainPage/MainPage";
 import LoginPage from "../pages/loginPage";
 import SharedLayout from "./sharedLayout";
 import RegistrationPage from "../pages/registrationPage/RegistrationPage";
 import LoadingSpinner from "./loadingSpinner/LoadingSpinner";
 import {ToastContainer} from 'react-toastify';
-import DairyPage from "../pages/dairyPage";
-import CalculatorPage from "../pages/calculatorPage";
 
 function App() {
 	// const dispatch = useDispatch();
@@ -34,8 +33,6 @@ function App() {
 						<Route index path="/" element={<MainPage/>}/>
 						<Route path="/login" element={<LoginPage/>}/>
 						<Route path="/registration" element={<RegistrationPage/>}/>
-						<Route path="/dairy" element={<DairyPage/>}/>
-						<Route path="/calculator" element={<CalculatorPage/>}/>
 					</Route>
 				</Routes>
 			}

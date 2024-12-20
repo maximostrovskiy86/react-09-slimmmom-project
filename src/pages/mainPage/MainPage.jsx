@@ -9,6 +9,7 @@ import DailyCalorieIntake from "../../components/dailyCalorieIntake";
 import {ReactComponent as GoBack} from "../../images/modal/cross-arrow.svg";
 import IconButton from "../../components/iconButton";
 import Container from "../../components/container";
+import Header from "../../components/header";
 import RightSideBar from "../../components/rightSideBar";
 import {getIsLoggedIn} from "../../redux/auth/authSelectors";
 

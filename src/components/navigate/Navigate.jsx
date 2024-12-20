@@ -8,15 +8,11 @@ import {ImMenu, ImCross} from "react-icons/im";
 
 
 const Navigate = () => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = React.useState(false);
 	const isLoggedIn = useSelector(getIsLoggedIn);
 	
 	const toggleMenu = () => {
 		setIsOpen(prev => !prev);
-	}
-	
-	const getClosedMenu = () => {
-		setIsOpen(false);
 	}
 	
 	return (
@@ -34,8 +30,8 @@ const Navigate = () => {
 						</button>
 						{isOpen && <div className="menu-box">
 							<ul className="list-navigation">
-								<li><Link to="/dairy" onClick={getClosedMenu}>Diary</Link></li>
-								<li><Link to="/calculator" onClick={getClosedMenu}>Calculator</Link></li>
+								<li><a href="#">Diary</a></li>
+								<li><a href="#">Calculator</a></li>
 							</ul>
 						</div>
 						}

@@ -5,6 +5,7 @@ import {LoginFormContainer, LoginInputBox} from "./LoginForm.styled";
 import Button from "../button";
 import authOperations from "../../redux/auth/authOperations";
 import {toast} from "react-toastify";
+import {getUserDailyRateById} from "../../redux/user/userOperations";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");

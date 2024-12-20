@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { toast } from 'react-toastify';
 import {RegistrationFormContainer} from "./RegistrationForm.styled"
-import {InputBox} from "../calculatorForm/CalculatorForm.styled";
+import {LoginInputBox} from "../loginForm/LoginForm.styled";
 import Button from "../button";
 import authOperations from "../../redux/auth/authOperations";
 
@@ -65,7 +65,7 @@ const RegistrationForm = () => {
 	
 	return (
 		<RegistrationFormContainer onSubmit={onSubmit}>
-			<InputBox>
+			<LoginInputBox>
 				<input
 					id="name"
 					type="text"
@@ -77,8 +77,8 @@ const RegistrationForm = () => {
 					onChange={onHandleChange}
 				/>
 				<label htmlFor="name">Name</label>
-			</InputBox>
-			<InputBox>
+			</LoginInputBox>
+			<LoginInputBox>
 				<input
 					id="login"
 					type="email"
@@ -90,8 +90,8 @@ const RegistrationForm = () => {
 					onChange={onHandleChange}
 				/>
 				<label htmlFor="login">Login</label>
-			</InputBox>
-			<InputBox>
+			</LoginInputBox>
+			<LoginInputBox>
 				<input
 					id="password"
 					type="password"
@@ -103,7 +103,7 @@ const RegistrationForm = () => {
 					onChange={onHandleChange}
 				/>
 				<label htmlFor="password">Password</label>
-			</InputBox>
+			</LoginInputBox>
 			{/*<Button>Login</Button>*/}
 			<Button>Registration</Button>
 		</RegistrationFormContainer>
