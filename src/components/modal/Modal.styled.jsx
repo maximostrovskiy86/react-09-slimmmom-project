@@ -19,6 +19,13 @@ export const ModalContainer = styled.div`
     
     .modal-header {
         padding: 15px 0;
+		margin: 0 -15px;
         background-color: ${p => p.theme.colors.background};
+		
+        button {
+            margin-left: 15px;
+        }
     }
+	
+
 `;
