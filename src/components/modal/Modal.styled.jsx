@@ -19,7 +19,6 @@ export const ModalContainer = styled.div`
     
     .modal-header {
         padding: 15px 0;
-        margin-bottom: 40px;
-        background-color: #EFF1F3;
+        background-color: ${p => p.theme.colors.background};
     }
 `;

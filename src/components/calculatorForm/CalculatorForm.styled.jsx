@@ -36,7 +36,7 @@ export const InputBox = styled.div`
         color: ${p => p.theme.colors.secondary};
         background: transparent;
         border: ${p => p.theme.borders.none};
-        border-bottom: ${p => p.theme.borders.none} solid ${p => p.theme.colors.gray};
+        border-bottom: ${p => p.theme.borders.small} solid ${p => p.theme.colors.gray};
         outline: none;
         
         &:focus ~ label {

@@ -1,11 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import {LoginFormContainer, LoginInputBox} from "./LoginForm.styled";
 import Button from "../button";
+import authOperations from "../../redux/auth/authOperations";
+import {toast} from "react-toastify";
+import {getUserDailyRateById} from "../../redux/user/userOperations";
 
 const LoginForm = () => {
-	
 	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [password = "2wsx@WSX", setPassword] = useState("2wsx@WSX");
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	
 	const onHandleChange = e => {
 		const {value, name} = e.target;
@@ -22,8 +28,33 @@ const LoginForm = () => {
 		}
 	}
 	
+	const notifyIncorrectUser = (email) => toast.error(`Incorrect password or email`);
+	
+	
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		const {payload} = await dispatch(authOperations.login({
+			email: email,
+			password: password,
+		}));
+		
+		setEmail('');
+		setPassword('');
+		
+		if (payload.status === 403) {
+			notifyIncorrectUser()
+			return;
+		}
+		
+		if (payload.status === 200) {
+			// dispatch(getUserDailyRateById())
+			
+			navigate("/", {replace: true});
+		}
+	}
+	
 	return (
-		<LoginFormContainer action="">
+		<LoginFormContainer onSubmit={onSubmit}>
 			<LoginInputBox>
 				<input
 					id="login"
@@ -31,7 +62,7 @@ const LoginForm = () => {
 					name="email"
 					required
 					value={email}
-					pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
+					// pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
 					title="Email must contain the @ symbol and be in the format example@mail.com"
 					onChange={onHandleChange}
 				/>
@@ -42,16 +73,15 @@ const LoginForm = () => {
 					id="password"
 					type="password"
 					name="password"
-					required
+					// required
 					value={password}
-					pattern="[0-9a-zA-Z!@#$%^&*]{7,}"
+					// pattern="[0-9a-zA-Z!@#$%^&*]{7,}"
 					title="The password must be at least 7 characters long and may contain numbers, Latin letters and special characters ! @ # $ % ^ & *"
 					onChange={onHandleChange}
 				/>
 				<label htmlFor="password">Password</label>
 			</LoginInputBox>
 			<Button>Login</Button>
-			<Button>Registration</Button>
 		</LoginFormContainer>
 	
 	)

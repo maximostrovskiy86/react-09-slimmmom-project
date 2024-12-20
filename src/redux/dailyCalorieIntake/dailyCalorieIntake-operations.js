@@ -8,7 +8,6 @@ import {
 axios.defaults.baseURL = "https://slimmom-backend.goit.global";
 
 export const fetchDailyCalorieIntake = (userData) => async dispatch => {
-	console.log("userData", userData)
 	try {
 		// Индикатор загрузки
 		dispatch(fetchingDailyCalorieIntakeInProgress());

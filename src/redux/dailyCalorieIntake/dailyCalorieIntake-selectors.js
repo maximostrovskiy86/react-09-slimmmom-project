@@ -1,1 +1,4 @@
-export const getDailyCalorieIntake = (state) => state.items
+export const getDailyCalorieIntake = (state) => {
+	// console.log("state", state);
+	return state.dailyCalorieIntake;
+};

@@ -1,16 +1,16 @@
 import {Suspense} from "react";
 import {Outlet} from "react-router-dom";
-import Container from "../container";
-import Navigation from "../navigate";
+import LoadingSpinner from "../loadingSpinner";
+import Header from "../header";
 
 const SharedLayout = () => {
 	return (
-		<Container>
-			<Navigation/>
-			<Suspense fallback={<div>Loading...</div>}>
+		<>
+			<Header />
+			<Suspense fallback={<LoadingSpinner/>}>
 				<Outlet/>
 			</Suspense>
-		</Container>
+		</>
 	);
 };
 

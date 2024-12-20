@@ -1,13 +1,16 @@
-import { LoginPageContainer } from "./LoginPage.styled";
+import {LoginPageContainer} from "./LoginPage.styled";
 import LoginForm from '../../components/loginForm';
 import HeadTitle from "../../components/headTitle";
+import Container from "../../components/container";
 
 const LoginPage = () => {
 	return (
-		<LoginPageContainer>
-			<HeadTitle text="Login" />
-			<LoginForm/>
-		</LoginPageContainer>
+		<Container>
+			<LoginPageContainer>
+				<HeadTitle>Login</HeadTitle>
+				<LoginForm/>
+			</LoginPageContainer>
+		</Container>
 	)
 }
 
