@@ -14,7 +14,7 @@ const Navigate = () => {
 	const toggleMenu = () => {
 		setIsOpen(prev => !prev);
 	}
-	
+
 	return (
 		<HeaderStyle>
 			<Container>
@@ -29,9 +29,9 @@ const Navigate = () => {
 							{isOpen ? <ImCross size="1.75em" color="#212121"/> : <ImMenu size="1.75em"/>}
 						</button>
 						{isOpen && <div className="menu-box">
-							<ul className="list-navigation">
-								<li><a href="#">Diary</a></li>
-								<li><a href="#">Calculator</a></li>
+							<ul className="list-navigation" onClick={toggleMenu}>
+								<li><Link to="/dairy">Diary</Link></li>
+								<li><Link to="/calculator">Calculator</Link></li>
 							</ul>
 						</div>
 						}
